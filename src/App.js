@@ -1,16 +1,21 @@
-import classes from "./App.module.css";
+import { useSelector } from "react-redux";
 
-import Container from "./UI/Container";
+import classes from "./App.module.css";
+import StartPage from "./components/startPage/StartPage";
+import Game from "./components/game/Game";
 
 const App = () => {
+  const hasStarted = useSelector(state => state.game.hasStarted);
+  const containerClass = hasStarted ? "" : `${classes.containerStart}`;
+  console.log(containerClass);
+
   return (
-    <Container>
-      <h1 className={classes.h1}>Titre exexptionel</h1>
-      <section className={classes.section}>
-        <h2>premier titre</h2>
-        <p>Un paragraphe très intéressant.</p>
-      </section>
-    </Container>
+    <div className={classes.app}>
+      <div className={`${classes.container} ${containerClass}`}>
+        {!hasStarted && <StartPage />}
+        {hasStarted && <Game />}
+      </div>
+    </div>
   );
 };
 

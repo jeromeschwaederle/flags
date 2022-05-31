@@ -1,9 +1,23 @@
-.h1 {
-  color: red;
-  font-size: 5rem;
+.app {
+  max-width: 160rem;
+  margin: 10vh auto;
+  height: 80vh;
 }
 
-.section h2 {
-  color: blueviolet;
-  font-size: 3rem;
+.container {
+  height: 100%;
+  margin: 10rem;
+  padding: 10rem;
+  background-color: rgb(6, 60, 4);
+
+  border-radius: 1rem;
+}
+
+.containerStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(166, 166, 166);
+  text-align: center;
 }

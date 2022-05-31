@@ -1,0 +1,22 @@
+.game {
+  color: red;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(122, 56, 56);
+  text-align: center;
+}
+
+.icons {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.para {
+  grid-column: 3 / 5;
+  grid-row: 2;
+}
