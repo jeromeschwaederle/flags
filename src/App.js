@@ -7,7 +7,6 @@ import Game from "./components/game/Game";
 const App = () => {
   const hasStarted = useSelector(state => state.game.hasStarted);
   const containerClass = hasStarted ? "" : `${classes.containerStart}`;
-  console.log(containerClass);
 
   return (
     <div className={classes.app}>

@@ -1,11 +1,11 @@
 import classes from "./StartPage.module.css";
 
-import StartPageButton from "./StartPageButton";
+import StartEndButton from "./StartEndButton";
 
 export default function StartPage() {
   return (
     <div className={classes.startpage}>
-      <StartPageButton />
+      <StartEndButton />
     </div>
   );
 }

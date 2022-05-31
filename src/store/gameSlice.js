@@ -3,7 +3,7 @@ import { START, END } from "./ActionNames";
 
 const gameInitial = {
   hasStarted: false,
-  lifes: 3,
+  lives: 2,
   level: 0,
 };
 

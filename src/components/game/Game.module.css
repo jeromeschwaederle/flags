@@ -16,7 +16,12 @@
   grid-row: 1;
 }
 
-.para {
-  grid-column: 3 / 5;
-  grid-row: 2;
+.level {
+  grid-column: 3 /5;
+  grid-row: 1;
+}
+
+.endBtn {
+  grid-column: 5/-1;
+  justify-self: end;
 }

@@ -1,0 +1,17 @@
+import { useSelector } from "react-redux";
+
+import classes from "./Level.module.css";
+import { LEVEL_DISPLAYER } from "../../UI/UITextConstants";
+
+export default function Level({ className }) {
+  const level = useSelector(state => state.game.level);
+
+  const appliedClasses = `${className} ${classes.level}`;
+
+  return (
+    <h2 className={appliedClasses}>
+      {LEVEL_DISPLAYER}
+      {level}
+    </h2>
+  );
+}
