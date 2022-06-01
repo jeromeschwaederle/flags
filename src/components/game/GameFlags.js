@@ -30,18 +30,20 @@ export default function GameFlags() {
   const flags = fourCountries.map((country, index) => {
     const appliedClasses = classes[`country-${index}`];
     return (
-      <div
-        onClick={clickHandler}
-        key={country.id}
-        id={country.id}
-        className={`${appliedClasses} ${classes.country}`}
-      >
-        <img
-          className={classes.img}
-          src={country.flag}
-          alt={`The flag of ${country.name}`}
-        ></img>
-        {/* <p>{country.name}</p> */}
+      <div className={`${appliedClasses} ${classes.country}`}>
+        <div
+          className={classes.flagContainer}
+          onClick={clickHandler}
+          key={country.id}
+          id={country.id}
+        >
+          <img
+            className={classes.img}
+            src={country.flag}
+            alt={`The flag of ${country.name}`}
+          ></img>
+          {/* <p>{country.name}</p> */}
+        </div>
       </div>
     );
   });
