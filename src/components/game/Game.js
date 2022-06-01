@@ -1,6 +1,6 @@
 import classes from "./Game.module.css";
-import Lives from "./Lives";
-import Level from "./Level";
+import Lives from "./GameLives";
+import Level from "./GameLevel";
 import StartEndButton from "../startPage/StartEndButton";
 
 export default function Game() {

@@ -49,3 +49,12 @@
 .endGame:hover {
   background-color: red;
 }
+
+.btn:disabled {
+  cursor: not-allowed;
+  background-color: #6a6a6a;
+}
+
+.btn:disabled span {
+  cursor: not-allowed;
+}

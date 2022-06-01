@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import classes from "./Level.module.css";
+import classes from "./GameLevel.module.css";
 import { LEVEL_DISPLAYER } from "../../UI/UITextConstants";
 
 export default function Level({ className }) {

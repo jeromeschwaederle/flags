@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import classes from "./Lives.module.css";
+import classes from "./GameLives.module.css";
 
 export default function Lifes({ className }) {
   const numberOfLives = useSelector(state => state.game.lives);
