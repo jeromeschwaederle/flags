@@ -50,11 +50,25 @@
   background-color: red;
 }
 
-.btn:disabled {
+.loading {
   cursor: not-allowed;
   background-color: #6a6a6a;
 }
 
-.btn:disabled span {
+.loading span {
   cursor: not-allowed;
+}
+
+.loading:hover {
+  background-color: #545454;
+  transform: none;
+  box-shadow: 0 0 2rem 0.5rem #020a11;
+}
+
+.loading:hover span {
+  padding-right: 0px;
+}
+
+.loading:hover span::after {
+  opacity: 0;
 }

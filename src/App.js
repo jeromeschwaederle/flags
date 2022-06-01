@@ -12,7 +12,6 @@ const App = () => {
   const containerClass = hasStarted ? "" : `${classes.containerStart}`;
 
   useEffect(() => {
-    console.log("USEEFFECT RUNNING");
     dispatch(fetchInitialData());
   }, [dispatch]);
 

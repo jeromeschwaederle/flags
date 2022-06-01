@@ -16,7 +16,10 @@ export default function StartEndButton({ className }) {
 
   let appliedClasses = `${classes.btn}`;
   let innerText = "";
-  if (!hasStarted && isLoading) innerText = BUTTON_GAME_LOADING;
+  if (!hasStarted && isLoading) {
+    innerText = BUTTON_GAME_LOADING;
+    appliedClasses = `${classes.btn} ${classes.loading}`;
+  }
 
   if (!hasStarted && !isLoading) innerText = BUTTON_START_GAME;
 

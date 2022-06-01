@@ -25,3 +25,8 @@
   grid-column: 5/-1;
   justify-self: end;
 }
+
+.gameFlags {
+  grid-column: 1 span 4;
+  grid-row: 2 span 2;
+}
