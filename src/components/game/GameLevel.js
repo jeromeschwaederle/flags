@@ -4,7 +4,7 @@ import classes from "./GameLevel.module.css";
 import { LEVEL_DISPLAYER } from "../../UI/UITextConstants";
 
 export default function Level({ className }) {
-  const level = useSelector(state => state.game.level);
+  const level = useSelector(state => state.game.currentLevel);
 
   const appliedClasses = `${className} ${classes.level}`;
 

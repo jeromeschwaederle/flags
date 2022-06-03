@@ -15,9 +15,6 @@ const App = () => {
     dispatch(fetchInitialData());
   }, [dispatch]);
 
-  const data = useSelector(state => state.game.data);
-  console.log(data);
-
   return (
     <div className={classes.app}>
       <div className={`${classes.container} ${containerClass}`}>

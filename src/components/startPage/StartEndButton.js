@@ -6,7 +6,7 @@ import {
   BUTTON_START_GAME,
   BUTTON_GAME_LOADING,
 } from "../../UI/UITextConstants";
-import { START, END } from "../../store/ActionNames";
+import { START, END } from "../../store/action-name-constants";
 import { gameActions } from "../../store/gameSlice";
 
 export default function StartEndButton({ className }) {

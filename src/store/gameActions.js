@@ -1,5 +1,5 @@
 import { gameActions } from "./gameSlice";
-import { TRUE, FALSE } from "./ActionNames";
+import { TRUE, FALSE } from "./action-name-constants";
 
 const request = async (url, type = "JSON") => {
   try {
@@ -29,17 +29,6 @@ export const fetchInitialData = () => {
       dispatch(gameActions.setIsLoading(FALSE));
     } catch (error) {
       dispatch(gameActions.setIsLoading(FALSE));
-      console.error(error);
-    }
-  };
-};
-
-export const setSVGs = (SVGurl, countryName) => {
-  return async dispatch => {
-    try {
-      const svg = await request(SVGurl, "TEXT");
-      dispatch(gameActions.setSVGs({ svg, countryName }));
-    } catch (error) {
       console.error(error);
     }
   };

@@ -6,44 +6,43 @@ import { gameActions } from "../../store/gameSlice";
 
 export default function GameFlags() {
   const dispatch = useDispatch();
-  const leftToGuess = useSelector(state => state.game.countries.toFind);
-  console.log(leftToGuess);
-  const guessed = useSelector(state => state.game.countries.found);
-  console.log(guessed);
 
   useEffect(() => {
     dispatch(gameActions.selectFourRandomCountries());
   }, [dispatch]);
 
+  const theOneToGessId = useSelector(
+    state => state.game.countries.theOneToGess.id
+  );
   const fourCountries = useSelector(state => state.game.countries.fourRandom);
-  const countryToFind =
-    fourCountries[Math.floor(Math.random() * fourCountries.length)];
+  const countryToFind = fourCountries.find(
+    country => country.id === theOneToGessId
+  );
 
   const clickHandler = event => {
-    if (event.target.src === countryToFind.flag) {
-      console.log("BIEN JOUER !!!!");
-      dispatch(gameActions.oneCountryWasGuessed(countryToFind.id));
+    if (Number(event.target.id) === theOneToGessId) {
+      dispatch(gameActions.oneCountryWasGuessed(theOneToGessId));
       dispatch(gameActions.selectFourRandomCountries());
+    } else {
+      console.log("💥💥💥💥💥💥💥💥💥💥");
     }
   };
 
   const flags = fourCountries.map((country, index) => {
     const appliedClasses = classes[`country-${index}`];
     return (
-      <div className={`${appliedClasses} ${classes.country}`}>
-        <div
-          className={classes.flagContainer}
-          onClick={clickHandler}
-          key={country.id}
+      <div
+        className={`${appliedClasses} ${classes.country}`}
+        onClick={clickHandler}
+        key={country.id}
+        id={country.id}
+      >
+        <img
           id={country.id}
-        >
-          <img
-            className={classes.img}
-            src={country.flag}
-            alt={`The flag of ${country.name}`}
-          ></img>
-          {/* <p>{country.name}</p> */}
-        </div>
+          className={classes.img}
+          src={country.flag}
+          alt={`The flag of ${country.name}`}
+        />
       </div>
     );
   });

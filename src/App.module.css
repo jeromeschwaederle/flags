@@ -1,5 +1,5 @@
 .app {
-  max-width: 180rem;
+  max-width: 140rem;
   margin: 10vh auto;
   height: 80vh;
 }
@@ -7,8 +7,8 @@
 .container {
   height: 100%;
   margin: 10rem;
-  padding: 10rem;
-  background-color: rgb(6, 60, 4);
+  padding: 8rem;
+  background-color: rgb(200, 200, 200);
 
   border-radius: 1rem;
 }
