@@ -1,31 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { START, END, TRUE, FALSE } from "./action-name-constants";
 // import { current } from "@reduxjs/toolkit";
 
-const gameInitial = {
-  isLoading: false,
-  hasStarted: false,
-  lives: 2,
-  currentLevel: 0,
-
-  level: {
-    1: {
-      cont: "Europe",
-      popMin: 40000000,
-      popMax: 10000000000,
-    },
-    2: {
-      cont: "Europe",
-      popMin: 5000000,
-      popMax: 40000000,
-    },
-    3: {
-      cont: "Europe",
-      popMin: 1,
-      popMax: 5000000,
-    },
-  },
-
+const countriesInitial = {
   data: [],
 
   countries: {
@@ -37,26 +13,18 @@ const gameInitial = {
 };
 
 const gameSlice = createSlice({
-  name: "game",
-  initialState: gameInitial,
+  name: "countries",
+  initialState: countriesInitial,
   reducers: {
-    setIsLoading(state, action) {
-      if (action.payload === TRUE) state.isLoading = true;
-      if (action.payload === FALSE) state.isLoading = false;
-    },
-
-    startOrEndGame(state, action) {
-      if (action.payload === START) state.hasStarted = true;
-      if (action.payload === END) state.hasStarted = false;
-    },
-
     loadInitialData(state, action) {
-      const data = action.payload;
-      console.log(data);
+      const rawData = action.payload;
+
+      const dataToSort = [];
+
       let id = 0;
-      data.forEach(country => {
+      rawData.forEach(country => {
         if (country.independent)
-          state.data.push({
+          dataToSort.push({
             id: id,
             name: country.name.common,
             nameOfficial: country.name.official,
@@ -71,9 +39,12 @@ const gameSlice = createSlice({
           });
         id++;
       });
+
+      state.data = dataToSort.sort((a, b) => b.population - a.population);
       state.countries.toFind = state.data;
     },
 
+    // TO DO METTRE DANS LE PAYLOAD LE NIVEAU ACTUEL
     selectFourRandomCountries(state) {
       state.countries.fourRandom = [];
       state.countries.theOneToGess = { id: undefined };
@@ -152,26 +123,8 @@ const gameSlice = createSlice({
         country => country.id !== action.payload
       );
     },
-
-    setLevelDifficulty(state, action) {
-      const difficulty = action.payload;
-      const data = state.data;
-      const countriesToFind = [];
-
-      data.forEach(country => {
-        if (
-          country.continent === state.level[difficulty].cont &&
-          country.population < state.level[difficulty].popMax &&
-          country.population > state.level[difficulty].popMin
-        ) {
-          countriesToFind.push(country);
-        }
-      });
-
-      state.countries.toFind = countriesToFind;
-    },
   },
 });
 
-export const gameActions = gameSlice.actions;
+export const countriesActions = gameSlice.actions;
 export default gameSlice.reducer;

@@ -9,7 +9,7 @@ const gameplayInitial = {
 
   lives: {
     maxLives: 3,
-    currentLiveNumber: 3,
+    currentLiveNumber: 2,
   },
 
   level: {
@@ -23,8 +23,12 @@ const gameplaySlice = createSlice({
   initialState: gameplayInitial,
   reducers: {
     startOrEndGame(state, action) {
-      if (action.payload === START) state.hasStarted = true;
-      if (action.payload === END) state.hasStarted = false;
+      console.log("GAMEPLAY SLICE");
+      if (action.payload === START) state.game.hasStarted = true;
+      if (action.payload === END) state.game.hasStarted = false;
     },
   },
 });
+
+export const gameplayActions = gameplaySlice.actions;
+export default gameplaySlice.reducer;

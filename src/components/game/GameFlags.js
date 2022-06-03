@@ -2,27 +2,30 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, Fragment } from "react";
 
 import classes from "./GameFlags.module.css";
-import { gameActions } from "../../store/gameSlice";
+import { countriesActions } from "../../store/countriesSlice";
+import GameImg from "./GameImg";
 
 export default function GameFlags() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(gameActions.selectFourRandomCountries());
+    dispatch(countriesActions.selectFourRandomCountries());
   }, [dispatch]);
 
   const theOneToGessId = useSelector(
-    state => state.game.countries.theOneToGess.id
+    state => state.countries.countries.theOneToGess.id
   );
-  const fourCountries = useSelector(state => state.game.countries.fourRandom);
+  const fourCountries = useSelector(
+    state => state.countries.countries.fourRandom
+  );
   const countryToFind = fourCountries.find(
     country => country.id === theOneToGessId
   );
 
   const clickHandler = event => {
     if (Number(event.target.id) === theOneToGessId) {
-      dispatch(gameActions.oneCountryWasGuessed(theOneToGessId));
-      dispatch(gameActions.selectFourRandomCountries());
+      dispatch(countriesActions.oneCountryWasGuessed(theOneToGessId));
+      dispatch(countriesActions.selectFourRandomCountries());
     } else {
       console.log("💥💥💥💥💥💥💥💥💥💥");
     }
@@ -37,7 +40,7 @@ export default function GameFlags() {
         key={country.id}
         id={country.id}
       >
-        <img
+        <GameImg
           id={country.id}
           className={classes.img}
           src={country.flag}

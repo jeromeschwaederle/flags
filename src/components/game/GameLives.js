@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import classes from "./GameLives.module.css";
 
 export default function Lifes({ className }) {
-  const numberOfLives = useSelector(state => state.game.lives);
+  const currentNumberOfLives = useSelector(
+    state => state.gameplay.lives.currentLiveNumber
+  );
 
   const fullHeart = (
     <svg
@@ -27,7 +29,7 @@ export default function Lifes({ className }) {
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={1}
     >
       <path
         strokeLinecap="round"
@@ -37,7 +39,7 @@ export default function Lifes({ className }) {
     </svg>
   );
 
-  if (numberOfLives === 3)
+  if (currentNumberOfLives === 3)
     return (
       <div className={className}>
         {fullHeart}
@@ -46,7 +48,7 @@ export default function Lifes({ className }) {
       </div>
     );
 
-  if (numberOfLives === 2)
+  if (currentNumberOfLives === 2)
     return (
       <div className={className}>
         {fullHeart}
@@ -55,7 +57,7 @@ export default function Lifes({ className }) {
       </div>
     );
 
-  if (numberOfLives === 1)
+  if (currentNumberOfLives === 1)
     return (
       <div className={className}>
         {fullHeart}

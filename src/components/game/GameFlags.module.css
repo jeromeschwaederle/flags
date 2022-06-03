@@ -1,16 +1,14 @@
 .country {
-  /* border: 3px solid black; */
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .country img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .country-0 {
@@ -35,15 +33,10 @@
   grid-row: 3/5;
   font-size: 6rem;
   justify-self: center;
-  color: blue;
   font-weight: 700;
 }
 
 .img {
-  width: 100%;
-  justify-self: center;
-  align-self: center;
-  transform: scale(0.95);
   transition: all 0.5s;
 }
 

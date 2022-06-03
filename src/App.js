@@ -8,7 +8,7 @@ import { fetchInitialData } from "./store/gameActions";
 
 const App = () => {
   const dispatch = useDispatch();
-  const hasStarted = useSelector(state => state.game.hasStarted);
+  const hasStarted = useSelector(state => state.gameplay.game.hasStarted);
   const containerClass = hasStarted ? "" : `${classes.containerStart}`;
 
   useEffect(() => {
