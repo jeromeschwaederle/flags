@@ -1,0 +1,23 @@
+.leftToCheck {
+  height: 100%;
+  /* color: blue; */
+
+  display: flex;
+
+  justify-content: center;
+  /* align-items: sta; */
+}
+
+.icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+.iconGuessed {
+  color: rgb(0, 143, 0);
+}
+
+.iconToGuess {
+  color: rgb(77, 77, 77);
+  fill: rgb(77, 77, 77);
+}

@@ -2,32 +2,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, Fragment } from "react";
 
 import classes from "./GameFlags.module.css";
-import { countriesActions } from "../../store/countriesSlice";
+import { gameActions } from "../../store/gameSlice";
 import GameImg from "./GameImg";
 
 export default function GameFlags() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(countriesActions.selectFourRandomCountries());
+    dispatch(gameActions.selectFourRandomCountries());
   }, [dispatch]);
 
   const theOneToGessId = useSelector(
-    state => state.countries.countries.theOneToGess.id
+    state => state.game.countries.theOneToGess.id
   );
-  const fourCountries = useSelector(
-    state => state.countries.countries.fourRandom
-  );
+  const fourCountries = useSelector(state => state.game.countries.fourRandom);
   const countryToFind = fourCountries.find(
     country => country.id === theOneToGessId
   );
 
   const clickHandler = event => {
-    if (Number(event.target.id) === theOneToGessId) {
-      dispatch(countriesActions.oneCountryWasGuessed(theOneToGessId));
-      dispatch(countriesActions.selectFourRandomCountries());
+    const gessedId = Number(event.target.id);
+    if (gessedId === theOneToGessId) {
+      dispatch(gameActions.oneCountryWasGuessed(gessedId));
+      dispatch(gameActions.selectFourRandomCountries());
     } else {
-      console.log("💥💥💥💥💥💥💥💥💥💥");
+      dispatch(gameActions.loseOneLife());
     }
   };
 

@@ -7,11 +7,11 @@ import {
   BUTTON_GAME_LOADING,
 } from "../../UI/UITextConstants";
 import { START, END } from "../../store/action-name-constants";
-import { gameplayActions } from "../../store/gameplaySlice";
+import { gameActions } from "../../store/gameSlice";
 
 export default function StartEndButton({ className }) {
   const dispatch = useDispatch();
-  const hasStarted = useSelector(state => state.gameplay.game.hasStarted);
+  const hasStarted = useSelector(state => state.game.gameplay.game.hasStarted);
   const isLoading = useSelector(state => state.ui.isLoading);
 
   let appliedClasses = `${classes.btn}`;
@@ -29,9 +29,8 @@ export default function StartEndButton({ className }) {
   }
 
   const clickHandler = () => {
-    console.log("hasStarted", hasStarted);
-    if (!hasStarted) dispatch(gameplayActions.startOrEndGame(START));
-    if (hasStarted) dispatch(gameplayActions.startOrEndGame(END));
+    if (!hasStarted) dispatch(gameActions.startOrEndGame(START));
+    if (hasStarted) dispatch(gameActions.startOrEndGame(END));
   };
 
   return (

@@ -4,22 +4,25 @@ import { useEffect } from "react";
 import classes from "./App.module.css";
 import StartPage from "./components/startPage/StartPage";
 import Game from "./components/game/Game";
-import { fetchInitialData } from "./store/gameActions";
+import { fetchInitialData } from "./store/gameFetchData";
+import DeadPage from "./components/deadPage/DeadPage";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const hasStarted = useSelector(state => state.gameplay.game.hasStarted);
-  const containerClass = hasStarted ? "" : `${classes.containerStart}`;
+  const hasStarted = useSelector(state => state.game.gameplay.game.hasStarted);
+  const isDead = useSelector(state => state.game.gameplay.lives.isDead);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchInitialData());
   }, [dispatch]);
 
+  const containerClass = hasStarted ? "" : `${classes.containerStart}`;
   return (
     <div className={classes.app}>
       <div className={`${classes.container} ${containerClass}`}>
-        {!hasStarted && <StartPage />}
-        {hasStarted && <Game />}
+        {!hasStarted && !isDead && <StartPage />}
+        {hasStarted && !isDead && <Game />}
+        {isDead && <DeadPage />}
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.starsContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.icon {
+  height: 5rem;
+  width: 5rem;
+}

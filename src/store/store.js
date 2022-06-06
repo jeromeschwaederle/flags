@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import countriesReducer from "./countriesSlice";
-import gameplayReducer from "./gameplaySlice";
+import gameReducer from "./gameSlice";
+// import gameplayReducer from "./gameplaySlice";
 import uiReducer from "./uiSlice";
 
 const store = configureStore({
   reducer: {
-    countries: countriesReducer,
-    gameplay: gameplayReducer,
+    game: gameReducer,
+    // gameplay: gameplayReducer,
     ui: uiReducer,
   },
 });

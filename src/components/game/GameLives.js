@@ -4,7 +4,7 @@ import classes from "./GameLives.module.css";
 
 export default function Lifes({ className }) {
   const currentNumberOfLives = useSelector(
-    state => state.gameplay.lives.currentLiveNumber
+    state => state.game.gameplay.lives.currentLiveNumber
   );
 
   const fullHeart = (

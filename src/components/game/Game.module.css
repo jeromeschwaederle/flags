@@ -30,6 +30,16 @@
   justify-self: end;
 }
 
+.guessCheck {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.levelStats {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
 .gameFlags {
   grid-column: 1 span 4;
   grid-row: 2 span 2;

@@ -1,5 +1,5 @@
 import { uiActions } from "./uiSlice";
-import { countriesActions } from "./countriesSlice";
+import { gameActions } from "./gameSlice";
 import { TRUE, FALSE } from "./action-name-constants";
 
 const request = async (url, type = "JSON") => {
@@ -26,7 +26,7 @@ export const fetchInitialData = () => {
     try {
       dispatch(uiActions.setIsLoading(TRUE));
       const data = await request(url);
-      dispatch(countriesActions.loadInitialData(data));
+      dispatch(gameActions.loadInitialData(data));
       dispatch(uiActions.setIsLoading(FALSE));
     } catch (error) {
       dispatch(uiActions.setIsLoading(FALSE));
