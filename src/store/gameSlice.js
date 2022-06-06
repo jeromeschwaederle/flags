@@ -4,24 +4,20 @@ import { START, END } from "./action-name-constants";
 
 const gameInitial = {
   data: [],
-
   gameplay: {
     game: {
       hasStarted: false,
     },
-
     lives: {
       maxLives: 3,
       currentLiveNumber: 3,
       isDead: false,
     },
-
     level: {
       currentLevel: 1,
       levelNumber: 10,
     },
   },
-
   countries: {
     toFind: [],
     found: [],
@@ -153,7 +149,16 @@ const gameSlice = createSlice({
       const gessedId = action.payload;
       if (toFind.length === 0) return;
 
-      if (gessedId === theOneToGuess) {
+      if (toFind.length === 1 && gessedId === theOneToGuess) {
+        const maxLives = state.gameplay.lives.maxLives;
+        state.gameplay.lives.currentLiveNumber = maxLives;
+        state.gameplay.level.currentLevel += 1;
+        const currentLevel = state.gameplay.level.currentLevel;
+        state.countries.toFind = state.data[currentLevel - 1];
+        state.countries.found = [];
+      }
+
+      if (toFind.length > 1 && gessedId === theOneToGuess) {
         const theFoundOne = toFind.find(
           country => country.id === theOneToGuess
         );
@@ -161,36 +166,27 @@ const gameSlice = createSlice({
         state.countries.toFind = toFind.filter(
           country => country.id !== theOneToGuess
         );
-
-        // ######################################################
-        // SelectFourRandom Logic
-        // ######################################################
-
-        // console.log("toFind.length", toFind.length);
-        // // state.countries.toFind = toFind;
-        // // state.countries.found = found;
-        // if (toFind.length === 1) {
-        //   console.log("GO TO NEXT LEVEL");
-        //   state.countries.toFind = state.data[0];
-        // }
       }
     },
 
-    loseOneLife(state, action) {
-      const currentLifeNumber = state.gameplay.lives.currentLiveNumber;
-      if (currentLifeNumber === 1) {
+    loseOneLife(state) {
+      if (state.gameplay.lives.currentLiveNumber === 1) {
         state.gameplay.lives.isDead = true;
         return;
       }
-      const updatedLifeNumber = currentLifeNumber - 1;
-      state.gameplay.lives.currentLiveNumber = updatedLifeNumber;
+      state.gameplay.lives.currentLiveNumber--;
     },
 
     reborn(state) {
+      state.gameplay.lives.isDead = false;
       const maxLives = state.gameplay.lives.maxLives;
       state.gameplay.lives.currentLiveNumber = maxLives;
-      state.gameplay.lives.isDead = false;
+      const currentLevel = state.gameplay.level.currentLevel;
+      state.countries.toFind = state.data[currentLevel - 1];
+      state.countries.found = [];
     },
+
+    loadNextLevel(state) {},
   },
 });
 

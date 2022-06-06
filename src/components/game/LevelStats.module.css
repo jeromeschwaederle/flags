@@ -7,4 +7,6 @@
 .icon {
   height: 5rem;
   width: 5rem;
+  /* color: yellow; */
+  fill: yellow;
 }
