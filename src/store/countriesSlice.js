@@ -44,6 +44,15 @@ const gameSlice = createSlice({
       state.countries.toFind = state.data;
     },
 
+    makeLevels(state, action) {
+      // Disons qu'il y a 10 niveaux
+      const numberOfLevels = action.payload;
+      const totalNumberOfCountries = state.data.length;
+      const numberOfCountryPerLevel = Math.floor(
+        totalNumberOfCountries / numberOfLevels
+      );
+    },
+
     // TO DO METTRE DANS LE PAYLOAD LE NIVEAU ACTUEL
     selectFourRandomCountries(state) {
       state.countries.fourRandom = [];
