@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
-import classes from "./GameGuessCheck.module.css";
+import classes from "./GameGuessStats.module.css";
 
-export default function GuessCheck(props) {
+export default function GameGuessStats() {
   const guessedNumber = useSelector(state => state.game.countries.found.length);
   const gessed = new Array(guessedNumber).fill(undefined).map((_, i) => {
     return (
@@ -17,7 +17,7 @@ export default function GuessCheck(props) {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="32"
+          strokeWidth="50"
           d="M352 176L217.6 336 160 272"
         />
         <rect
@@ -30,7 +30,7 @@ export default function GuessCheck(props) {
           fill="none"
           stroke="currentColor"
           strokeLinejoin="round"
-          strokeWidth="32"
+          strokeWidth="50"
         />
       </svg>
     );
@@ -70,10 +70,10 @@ export default function GuessCheck(props) {
       );
     });
 
-  const guessedAndLeftToGuess = gessed.concat(leftToGuess);
-
-  const { className } = props;
-  const appliedClasses = `${classes.leftToCheck} ${className}`;
-
-  return <div className={appliedClasses}>{guessedAndLeftToGuess}</div>;
+  return (
+    <div className={classes.container}>
+      <div>{gessed}</div>
+      <div>{leftToGuess}</div>
+    </div>
+  );
 }

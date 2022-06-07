@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 import classes from "./GameLives.module.css";
 
@@ -6,11 +7,21 @@ export default function Lifes({ className }) {
   const currentNumberOfLives = useSelector(
     state => state.game.gameplay.lives.currentLiveNumber
   );
-  console.log("currentNumberOfLives", currentNumberOfLives);
   const maxLives = useSelector(state => state.game.gameplay.lives.maxLives);
-  console.log("maxLives", maxLives);
   const numberEmptyHearts = maxLives - currentNumberOfLives;
-  console.log("numberEmptyHearts", numberEmptyHearts);
+
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    if (numberEmptyHearts === 0) return;
+
+    setAnimate(true);
+
+    const timer = setTimeout(() => {
+      setAnimate(false);
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [numberEmptyHearts]);
 
   const fullHearts = new Array(currentNumberOfLives)
     .fill(undefined)
@@ -39,11 +50,11 @@ export default function Lifes({ className }) {
         <svg
           key={i * 100}
           xmlns="http://www.w3.org/2000/svg"
-          className={classes.icons}
+          className={`${classes.icons} ${animate ? classes.emptyHearts : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          strokeWidth={1}
+          strokeWidth={2}
         >
           <path
             strokeLinecap="round"
@@ -54,8 +65,10 @@ export default function Lifes({ className }) {
       );
     });
 
-  const hearts = fullHearts.concat(emptyHearts);
   return (
-    <div className={`${classes.iconContainer} ${className}`}>{hearts}</div>
+    <div className={`${classes.container} ${className} `}>
+      <div>{fullHearts}</div>
+      <div>{emptyHearts}</div>
+    </div>
   );
 }

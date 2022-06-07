@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+.iconGuessed {
+  color: rgb(0, 176, 0);
+  stroke-width: 5rem;
+}
+
+.iconGuessed:last-child {
+  animation: guessed 0.4s ease-out;
+}
+
+.iconToGuess {
+  color: #4d4d4d;
+  fill: rgb(77, 77, 77);
+}
+
+@keyframes guessed {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

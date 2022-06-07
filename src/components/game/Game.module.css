@@ -28,12 +28,7 @@
   justify-self: end;
 }
 
-.guessCheck {
-  grid-column: 1 / -1;
-  grid-row: 2;
-}
-
-.levelStats {
+.gameStats {
   grid-column: 1 / -1;
   grid-row: 2;
 }

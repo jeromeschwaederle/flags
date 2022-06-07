@@ -10,14 +10,9 @@
   padding: 8rem;
   background-color: rgb(200, 200, 200);
 
-  border-radius: 1rem;
+  border-radius: 2rem;
 }
 
 .containerStart {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(166, 166, 166);
-  text-align: center;
 }
