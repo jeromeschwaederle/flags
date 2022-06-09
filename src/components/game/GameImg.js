@@ -14,6 +14,7 @@ export default function GameImg(props) {
   return (
     <Fragment>
       {!isLoaded && <Spinner />}
+
       <img
         onLoad={loadHandler}
         id={id}
