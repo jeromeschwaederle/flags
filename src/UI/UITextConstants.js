@@ -1,18 +1,18 @@
-const BUTTON_GAME_LOADING = "Loading...";
+// START PAGE
+export const BUTTON_START_GAME = "Start";
+export const START_PAGE_TITLE = "🇫🇷Flags🇫🇷";
+export const START_PAGE_P = "How many ⭐⭐⭐ can you get?";
+export const BUTTON_GAME_LOADING = "Loading...";
 
-const BUTTON_START_GAME = "Start";
-const START_PAGE_TITLE = "🇫🇷Flags🇫🇷";
-const START_PAGE_P = "How many ⭐⭐⭐ can you get?";
+// GAME PAGE
+export const LEVEL_DISPLAYER = "LEVEL N°";
+export const BUTTON_END_GAME = "Exit";
 
-const LEVEL_DISPLAYER = "LEVEL N°";
+// LEVEL FINISHED PAGE
+export const FINISHED_CONGRATS = "🥳 Congratulations 🥳";
+export const FINISHED_LEVEL_INFO = "You finished level n°";
+export const FINISHED_BTN = "Go to level n°";
 
-const BUTTON_END_GAME = "Exit";
-
-export {
-  BUTTON_END_GAME,
-  BUTTON_START_GAME,
-  LEVEL_DISPLAYER,
-  BUTTON_GAME_LOADING,
-  START_PAGE_TITLE,
-  START_PAGE_P,
-};
+// DEAD PAGE
+export const DEAD_MESSAGE = "💀💀💀 You died... 💀💀💀";
+export const DEAD_BTN_TEXT = "Try again 😉";

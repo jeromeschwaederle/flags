@@ -37,3 +37,52 @@
   grid-column: 1 span 4;
   grid-row: 2 span 2;
 }
+
+/* ####################### */
+/* TRANSITIONS */
+/* ####################### */
+
+.appearActive,
+.enterActive,
+.exitActive {
+  transition: all 1s;
+}
+
+.appear {
+  font-size: 1rem;
+  opacity: 0;
+  transform: scale(0.1);
+}
+.appearActive {
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+}
+.appearDone {
+  height: 100%;
+}
+.enter {
+  font-size: 1rem;
+  opacity: 0;
+  transform: scale(0.1);
+}
+.enterActive {
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+}
+.enterDone {
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+}
+.exit {
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+}
+.exitActive {
+  font-size: 1rem;
+  opacity: 0;
+  transform: scale(0.1);
+}
