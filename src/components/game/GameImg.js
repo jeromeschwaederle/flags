@@ -2,9 +2,7 @@ import { Fragment, useState } from "react";
 
 import Spinner from "../../UI/spinner";
 
-export default function GameImg(props) {
-  const { id, className, src, alt } = props;
-
+export default function GameImg({ id, className, src, alt, onClick }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const loadHandler = () => {
@@ -16,6 +14,7 @@ export default function GameImg(props) {
       {!isLoaded && <Spinner />}
 
       <img
+        onClick={onClick}
         onLoad={loadHandler}
         id={id}
         className={className}

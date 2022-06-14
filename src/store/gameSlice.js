@@ -14,7 +14,7 @@ const gameInitial = {
       isDead: false,
     },
     level: {
-      currentLevel: 1,
+      currentLevel: 3,
       isFinished: false,
       levelNumber: 10,
     },
@@ -72,9 +72,15 @@ const gameSlice = createSlice({
     },
 
     startOrEndGame(state, action) {
-      console.log("GAMEPLAY SLICE");
       if (action.payload === START) state.gameplay.game.hasStarted = true;
-      if (action.payload === END) state.gameplay.game.hasStarted = false;
+      if (action.payload === END) {
+        state.gameplay.game.hasStarted = false;
+        state.gameplay.level.currentLevel = 1;
+        state.countries.toFind = state.data[0];
+        state.gameplay.lives.isDead = false;
+        state.gameplay.lives.currentLiveNumber = state.gameplay.lives.maxLives;
+        state.countries.found = [];
+      }
     },
 
     selectFourRandomCountries(state) {
@@ -82,7 +88,7 @@ const gameSlice = createSlice({
       state.countries.theOneToGess = { id: undefined };
 
       // If there's MORE than 4 countries left to guess
-      // En prendre 4 au hazard dans l'array "toFind"
+      // take 4 randomly in array "toFind"
       if (state.countries.toFind.length >= 4) {
         const indexSet = new Set();
         while (indexSet.size < 4) {
@@ -96,31 +102,31 @@ const gameSlice = createSlice({
           state.countries.fourRandom.push(state.countries.toFind[index]);
         });
 
-        // Détermine lequel des 4 sera à deviner
+        // Choose which one to guess
         state.countries.theOneToGess.id =
           state.countries.fourRandom[
             Math.floor(Math.random() * state.countries.fourRandom.length)
           ].id;
 
-        // Si il reste moins de quatre pays à trouver
+        // If there is less than 4 countries to guess
       } else {
         if (state.countries.toFind.length === 0) return;
 
-        // Mettre tous les "toFind" dans fourRandom
+        // Put all the "toFind" in "fourRandom"
         state.countries.fourRandom = [...state.countries.toFind];
 
-        // J'en sélectionne un au hazard
+        // Select one randomly
         const indexToFind = Math.floor(
           Math.random() * state.countries.fourRandom.length
         );
-        // Enregistre l'id de celui qu'il faudra deviner
+        // Save the id of the one to guess
         state.countries.theOneToGess.id =
           state.countries.fourRandom[indexToFind].id;
 
-        // Déterminer combien il manque pour en avoir quatre à présenter
+        // Determines how many are missing to have 4 to present
         const numMissingCountry = 4 - state.countries.fourRandom.length;
 
-        // En prendre ce nombre dans "found"
+        // Takes this number in "found"
         const indexSet = new Set();
 
         while (indexSet.size < numMissingCountry) {
@@ -176,15 +182,24 @@ const gameSlice = createSlice({
     },
 
     reborn(state) {
-      if (state.gameplay.level.isFinished)
+      if (state.gameplay.level.isFinished) {
         state.gameplay.level.isFinished = false;
+      }
+
+      // Case where Game is finished and Start from beginning
+      if (
+        state.gameplay.level.currentLevel > state.gameplay.level.levelNumber
+      ) {
+        state.gameplay.level.currentLevel = 1;
+        state.countries.toFind = state.data[0];
+      }
+
+      if (state.gameplay.level.currentLevel <= state.gameplay.level.levelNumber)
+        state.countries.toFind =
+          state.data[state.gameplay.level.currentLevel - 1];
 
       state.gameplay.lives.isDead = false;
-      const maxLives = state.gameplay.lives.maxLives;
-      state.gameplay.lives.currentLiveNumber = maxLives;
-      // const currentLevel = state.gameplay.level.currentLevel;
-      state.countries.toFind =
-        state.data[state.gameplay.level.currentLevel - 1];
+      state.gameplay.lives.currentLiveNumber = state.gameplay.lives.maxLives;
       state.countries.found = [];
     },
   },

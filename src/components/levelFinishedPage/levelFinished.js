@@ -5,6 +5,8 @@ import {
   FINISHED_CONGRATS,
   FINISHED_LEVEL_INFO,
   FINISHED_BTN,
+  FINISHED_GAME,
+  FINISHED_GAME_BTN,
 } from "../../UI/UITextConstants";
 import GameLevelStats from "../game/LevelStats";
 import styles from "./levelFinished.module.css";
@@ -12,8 +14,11 @@ import { gameActions } from "../../store/gameSlice";
 
 export default function LevelFinished({ show, onExited, timeout }) {
   const dispatch = useDispatch();
-  const levelNumber = useSelector(
+  const currentLevel = useSelector(
     state => state.game.gameplay.level.currentLevel
+  );
+  const numberOfLevels = useSelector(
+    state => state.game.gameplay.level.levelNumber
   );
 
   const clickHandler = () => dispatch(gameActions.reborn());
@@ -31,16 +36,20 @@ export default function LevelFinished({ show, onExited, timeout }) {
       <div className={styles.container}>
         <p>{FINISHED_CONGRATS}</p>
         <p>
-          {FINISHED_LEVEL_INFO}
-          {levelNumber - 1}
+          {currentLevel <= numberOfLevels
+            ? `${FINISHED_LEVEL_INFO} ${currentLevel - 1}`
+            : `${FINISHED_GAME}`}
         </p>
         <GameLevelStats />
+        {/* {currentLevel <= numberOfLevels && ( */}
         <button onClick={clickHandler} className={styles.btn}>
           <span>
-            {FINISHED_BTN}
-            {levelNumber}
+            {currentLevel <= numberOfLevels
+              ? `${FINISHED_BTN} ${currentLevel}`
+              : `${FINISHED_GAME_BTN}`}
           </span>
         </button>
+        {/* )} */}
       </div>
     </CSSTransition>
   );

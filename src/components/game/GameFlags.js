@@ -35,11 +35,11 @@ export default function GameFlags() {
     return (
       <div
         className={`${appliedClasses} ${classes.country}`}
-        onClick={clickHandler}
         key={country.id}
         id={country.id}
       >
         <GameImg
+          onClick={clickHandler}
           id={country.id}
           className={classes.img}
           src={country.flag}

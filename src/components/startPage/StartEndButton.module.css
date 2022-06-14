@@ -12,7 +12,6 @@
   transition: all 0.3s;
   cursor: pointer;
   margin: 5px;
-  box-shadow: 0 0 2rem 0.5rem #020a11;
 }
 
 .btn span {
@@ -47,7 +46,7 @@
 }
 
 .endGame:hover {
-  background-color: red;
+  background-color: rgb(220, 0, 0);
 }
 
 .loading {

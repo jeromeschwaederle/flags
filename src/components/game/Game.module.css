@@ -45,7 +45,7 @@
 .appearActive,
 .enterActive,
 .exitActive {
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 .appear {

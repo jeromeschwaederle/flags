@@ -12,6 +12,8 @@ export const BUTTON_END_GAME = "Exit";
 export const FINISHED_CONGRATS = "🥳 Congratulations 🥳";
 export const FINISHED_LEVEL_INFO = "You finished level n°";
 export const FINISHED_BTN = "Go to level n°";
+export const FINISHED_GAME = "💪 YOU FINISHED THE GAME! 🤩";
+export const FINISHED_GAME_BTN = "Start From Beginning";
 
 // DEAD PAGE
 export const DEAD_MESSAGE = "💀💀💀 You died... 💀💀💀";
