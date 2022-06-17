@@ -34,9 +34,8 @@ export default function GameFlags() {
     const appliedClasses = classes[`country-${index}`];
     return (
       <div
-        className={`${appliedClasses} ${classes.country}`}
         key={country.id}
-        id={country.id}
+        className={`${classes.container} ${appliedClasses}`}
       >
         <GameImg
           onClick={clickHandler}
@@ -52,9 +51,9 @@ export default function GameFlags() {
   return (
     <Fragment>
       {flags}
-      <p className={classes.countryToFind}>
-        {countryToFind?.nameFrench.common}
-      </p>
+      <div className={classes.countryToFind}>
+        <p>{countryToFind?.nameFrench.common}</p>
+      </div>
     </Fragment>
   );
 }

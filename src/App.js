@@ -27,13 +27,6 @@ const App = () => {
   const [showDeadPage, setShowDeadPage] = useState(null);
   const [showLevelFinished, setShowLevelFinished] = useState(null);
 
-  console.log("firstLoad", firstLoad);
-  console.log("showStartPage", showStartPage);
-  console.log("showGame", showGame);
-  console.log("showDeadPage", showDeadPage);
-  console.log("showLevelFinished", showLevelFinished);
-  console.log("####################################");
-
   const startPageExitedHandler = () => setShowGame(true);
   const deadPageExitedHandler = () => setShowGame(true);
   const gameExitedHanler = () => {
@@ -71,24 +64,26 @@ const App = () => {
 
   const containerClass = hasStarted ? "" : `${classes.containerStart}`;
   return (
-    <div className={classes.app}>
-      <div className={`${classes.container} ${containerClass}`}>
-        <StartPage
-          show={showStartPage}
-          onExited={startPageExitedHandler}
-          timeout={1}
-        />
-        <LevelFinished
-          show={showLevelFinished}
-          onExited={levelFinishedExitedHandler}
-          timeout={0.7}
-        />
-        <Game show={showGame} onExited={gameExitedHanler} timeout={0.7} />
-        <DeadPage
-          show={showDeadPage}
-          onExited={deadPageExitedHandler}
-          timeout={0.7}
-        />
+    <div className={classes.wrapper}>
+      <div className={classes.app}>
+        <div className={`${classes.container} ${containerClass}`}>
+          <StartPage
+            show={showStartPage}
+            onExited={startPageExitedHandler}
+            timeout={1}
+          />
+          <LevelFinished
+            show={showLevelFinished}
+            onExited={levelFinishedExitedHandler}
+            timeout={0.7}
+          />
+          <Game show={showGame} onExited={gameExitedHanler} timeout={0.7} />
+          <DeadPage
+            show={showDeadPage}
+            onExited={deadPageExitedHandler}
+            timeout={0.7}
+          />
+        </div>
       </div>
     </div>
   );

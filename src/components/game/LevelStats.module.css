@@ -5,8 +5,35 @@
 }
 
 .icon {
-  height: 5rem;
-  width: 5rem;
-  /* color: yellow; */
+  height: 4rem;
+  width: 4rem;
   fill: yellow;
+}
+
+/* ####################### */
+/* MEDIA QUERIES */
+/* ####################### */
+
+/* 690px */
+@media (max-width: 43.125em) {
+  .icon {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+}
+
+/* 570px */
+@media (max-width: 35.625em) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+/* 510px */
+@media (max-width: 31.875em) {
+  .container {
+    display: none;
+  }
 }

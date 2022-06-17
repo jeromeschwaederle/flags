@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 
 import styles from "./DeadPage.module.css";
 import { DEAD_MESSAGE, DEAD_BTN_TEXT } from "../../UI/UITextConstants";
+import Button from "../../UI/Button";
 
 export default function DeadPage({ show, onExited, timeout }) {
   const dispatch = useDispatch();
@@ -20,10 +21,8 @@ export default function DeadPage({ show, onExited, timeout }) {
       onExited={onExited}
     >
       <div>
-        <p>{DEAD_MESSAGE}</p>
-        <button className={styles.btn} onClick={clickHandler}>
-          <span>{DEAD_BTN_TEXT}</span>
-        </button>
+        <p className={styles.message}>{DEAD_MESSAGE}</p>
+        <Button onClick={clickHandler} text={DEAD_BTN_TEXT} />
       </div>
     </CSSTransition>
   );

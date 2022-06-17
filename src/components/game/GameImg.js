@@ -12,7 +12,6 @@ export default function GameImg({ id, className, src, alt, onClick }) {
   return (
     <Fragment>
       {!isLoaded && <Spinner />}
-
       <img
         onClick={onClick}
         onLoad={loadHandler}

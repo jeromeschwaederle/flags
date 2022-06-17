@@ -14,7 +14,7 @@ const gameInitial = {
       isDead: false,
     },
     level: {
-      currentLevel: 3,
+      currentLevel: 5,
       isFinished: false,
       levelNumber: 10,
     },

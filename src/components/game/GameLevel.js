@@ -8,10 +8,5 @@ export default function Level({ className }) {
 
   const appliedClasses = `${className} ${classes.level}`;
 
-  return (
-    <h2 className={appliedClasses}>
-      {LEVEL_DISPLAYER}
-      {level}
-    </h2>
-  );
+  return <h2 className={appliedClasses}>{`${LEVEL_DISPLAYER} ${level}`}</h2>;
 }

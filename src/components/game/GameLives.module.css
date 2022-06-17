@@ -29,3 +29,19 @@
     opacity: 1;
   }
 }
+
+/* 690px */
+@media (max-width: 43.125em) {
+  .icons {
+    height: 4.8rem;
+    width: 4.8rem;
+  }
+}
+
+/* 510px */
+@media (max-width: 31.875em) {
+  .icons {
+    height: 6rem;
+    width: 6rem;
+  }
+}

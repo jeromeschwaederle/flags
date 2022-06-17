@@ -9,24 +9,45 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 2rem;
-  color: #020a11;
+  color: #071e33;
 
-  background-color: #eee;
+  background-color: #e8f0f7;
 }
 
 /* 
 Main colors: 
 #1864ab
 TINTS: 
+#e8f0f7
+#d1e0ee
+#bad1e6
+#a3c1dd
 SHADES:
+#071e33
 #0e3c67
-#020a11
 
-
-#087f5b
-TINTS: 
-SHADES:
-#010d09
+SPACING SYSTEM:
+2 4 8 12 16 24 32 48 64 80 96 128
 */
+
+/* 992px */
+@media (max-width: 62em) {
+  html {
+    /* 1rem === 8px */
+    font-size: 50%;
+  }
+}
+
+/* 800px */
+@media (max-width: 50em) {
+  html {
+    /* 1rem === 7px */
+    font-size: 43.75%;
+  }
+}
+
+/* 690px */
+@media (max-width: 43.125em) {
+}

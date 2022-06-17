@@ -2,16 +2,16 @@
   display: inline-block;
   background-color: #0e3c67;
   border-radius: 1rem;
-  border: 0.4rem #cccccc;
   color: #eeeeee;
   text-align: center;
   font-size: 2.8rem;
   font-weight: 700;
   padding: 2rem;
-  width: 20rem;
+  width: 30rem;
   transition: all 0.3s;
   cursor: pointer;
-  margin: 0.5rem;
+  margin: 5px;
+  box-shadow: 0 0 2rem 0.5rem #020a11;
 }
 
 .btn span {
@@ -33,7 +33,7 @@
 .btn:hover {
   background-color: #087f5b;
   transform: scale(1.02);
-  box-shadow: 0 0 2rem #071e33;
+  box-shadow: 0 0 2rem 1rem #021912;
 }
 
 .btn:hover span {
@@ -43,39 +43,4 @@
 .btn:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.endGame:hover {
-  background-color: rgb(220, 0, 0);
-}
-
-.loading {
-  cursor: not-allowed;
-  background-color: #6a6a6a;
-}
-
-.loading span {
-  cursor: not-allowed;
-}
-
-.loading:hover {
-  background-color: #545454;
-  transform: none;
-  box-shadow: 0 0 2rem 0.5rem #020a11;
-}
-
-.loading:hover span {
-  padding-right: 0;
-}
-
-.loading:hover span::after {
-  opacity: 0;
-}
-
-/* 690px */
-@media (max-width: 43.125em) {
-  .btn {
-    padding: 1.6rem;
-    width: 16rem;
-  }
 }

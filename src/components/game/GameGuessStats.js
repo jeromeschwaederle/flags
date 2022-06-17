@@ -72,8 +72,8 @@ export default function GameGuessStats() {
 
   return (
     <div className={classes.container}>
-      <div>{gessed}</div>
-      <div>{leftToGuess}</div>
+      <div className={classes.gessed}>{gessed}</div>
+      <div className={classes.leftToGuess}>{leftToGuess}</div>
     </div>
   );
 }

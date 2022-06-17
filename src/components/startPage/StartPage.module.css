@@ -19,12 +19,10 @@
 }
 
 .appear {
-  font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
 }
 .appearActive {
-  /* height: 100%; */
   opacity: 1;
   transform: scale(1);
 
@@ -38,8 +36,6 @@
   align-items: center;
 }
 .appearDone {
-  /* height: 100%; */
-
   text-align: center;
   font-size: 5rem;
   margin: auto;
@@ -50,12 +46,10 @@
   align-items: center;
 }
 .enter {
-  /* font-size: 1rem; */
   opacity: 0;
   transform: scale(0.1);
 }
 .enterActive {
-  /* height: 100%; */
   opacity: 1;
   transform: scale(1);
 
@@ -69,7 +63,6 @@
   align-items: center;
 }
 .enterDone {
-  /* height: 100%; */
   opacity: 1;
   transform: scale(1);
 
@@ -84,8 +77,6 @@
 }
 
 .exit {
-  /* height: 100%; */
-
   text-align: center;
   font-size: 5rem;
   margin: auto;
@@ -96,7 +87,6 @@
   align-items: center;
 }
 .exitActive {
-  font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
 }

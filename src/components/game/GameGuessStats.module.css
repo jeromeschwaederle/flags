@@ -4,22 +4,17 @@
 }
 
 .icon {
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 .iconGuessed {
-  color: rgb(0, 176, 0);
-  stroke-width: 5rem;
+  stroke-width: 6.8rem;
+  color: #087f5b;
 }
 
 .iconGuessed:last-child {
-  animation: guessed 0.4s ease-out;
-}
-
-.iconToGuess {
-  color: #4d4d4d;
-  fill: rgb(77, 77, 77);
+  animation: guessed 0.5s ease-out;
 }
 
 @keyframes guessed {
@@ -31,5 +26,32 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+/* ####################### */
+/* MEDIA QUERIES */
+/* ####################### */
+
+/* 690px */
+@media (max-width: 43.125em) {
+  .icon {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+}
+
+/* 570px */
+@media (max-width: 35.625em) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 3.2rem;
+  }
+
+  .gessed,
+  .leftToGuess {
+    display: flex;
+    flex-direction: column;
   }
 }
