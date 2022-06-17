@@ -8,9 +8,10 @@ import {
   FINISHED_GAME,
   FINISHED_GAME_BTN,
 } from "../../UI/UITextConstants";
-import GameLevelStats from "../game/LevelStats";
+import LevelStats from "../game/LevelStats";
 import styles from "./levelFinished.module.css";
 import { gameActions } from "../../store/gameSlice";
+import Button from "../../UI/Button";
 
 export default function LevelFinished({ show, onExited, timeout }) {
   const dispatch = useDispatch();
@@ -34,22 +35,22 @@ export default function LevelFinished({ show, onExited, timeout }) {
       onExited={onExited}
     >
       <div className={styles.container}>
-        <p>{FINISHED_CONGRATS}</p>
+        <p classNames={styles.congratulations}>{FINISHED_CONGRATS}</p>
         <p>
           {currentLevel <= numberOfLevels
             ? `${FINISHED_LEVEL_INFO} ${currentLevel - 1}`
             : `${FINISHED_GAME}`}
         </p>
-        <GameLevelStats />
-        {/* {currentLevel <= numberOfLevels && ( */}
-        <button onClick={clickHandler} className={styles.btn}>
-          <span>
-            {currentLevel <= numberOfLevels
+        <LevelStats />
+        <Button
+          onClick={clickHandler}
+          className={styles.btn}
+          text={
+            currentLevel <= numberOfLevels
               ? `${FINISHED_BTN} ${currentLevel}`
-              : `${FINISHED_GAME_BTN}`}
-          </span>
-        </button>
-        {/* )} */}
+              : `${FINISHED_GAME_BTN}`
+          }
+        />
       </div>
     </CSSTransition>
   );

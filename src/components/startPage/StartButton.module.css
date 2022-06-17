@@ -45,10 +45,6 @@
   right: 0;
 }
 
-.endGame:hover {
-  background-color: rgb(220, 0, 0);
-}
-
 .loading {
   cursor: not-allowed;
   background-color: #6a6a6a;

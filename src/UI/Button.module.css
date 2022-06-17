@@ -7,11 +7,10 @@
   font-size: 2.8rem;
   font-weight: 700;
   padding: 2rem;
-  width: 30rem;
   transition: all 0.3s;
   cursor: pointer;
   margin: 5px;
-  box-shadow: 0 0 2rem 0.5rem #020a11;
+  border: none;
 }
 
 .btn span {
@@ -33,7 +32,7 @@
 .btn:hover {
   background-color: #087f5b;
   transform: scale(1.02);
-  box-shadow: 0 0 2rem 1rem #021912;
+  box-shadow: 0 0 1rem 0.5rem #020a1184;
 }
 
 .btn:hover span {
@@ -43,4 +42,17 @@
 .btn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+/* ####################### */
+/* MEDIA QUERIES */
+/* ####################### */
+
+/* ####################### */
+/* 690px */
+@media (max-width: 43.125em) {
+  .btn {
+    font-size: 2.4rem;
+    padding: 1.6rem;
+  }
 }

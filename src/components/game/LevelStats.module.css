@@ -10,6 +10,10 @@
   fill: yellow;
 }
 
+.display {
+  display: block;
+}
+
 /* ####################### */
 /* MEDIA QUERIES */
 /* ####################### */
@@ -24,15 +28,6 @@
 
 /* 570px */
 @media (max-width: 35.625em) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-  }
-}
-
-/* 510px */
-@media (max-width: 31.875em) {
   .container {
     display: none;
   }

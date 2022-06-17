@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import classes from "./LevelStats.module.css";
 
-export default function GameLevelStats(props) {
+export default function GameLevelStats({ className }) {
   const currentLevel = useSelector(
     state => state.game.gameplay.level.currentLevel
   );
@@ -53,7 +53,6 @@ export default function GameLevelStats(props) {
 
   const levelsDoneAndLeftToDo = levelsDone.concat(levelsLeftToDo);
 
-  const { className } = props;
   return (
     <div className={`${classes.container} ${className}`}>
       {levelsDoneAndLeftToDo}

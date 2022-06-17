@@ -1,62 +1,5 @@
-.container {
-  height: 100%;
-
-  text-align: center;
-  font-size: 5rem;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.btn {
-  display: inline-block;
-  background-color: #0e3c67;
-  border-radius: 10px;
-  border: 4px double #cccccc;
-  color: #eeeeee;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  padding: 20px;
-  width: 30rem;
-  transition: all 0.3s;
-  cursor: pointer;
-  margin: 5px;
-  box-shadow: 0 0 2rem 0.5rem #020a11;
-}
-
-.btn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn span::after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn:hover {
-  background-color: #087f5b;
-  transform: scale(1.02);
-  box-shadow: 0 0 2rem 1rem #021912;
-}
-
-.btn:hover span {
-  padding-right: 25px;
-}
-
-.btn:hover span:after {
-  opacity: 1;
-  right: 0;
+.congratulations {
+  width: 100%;
 }
 
 /* ####################### */
@@ -69,61 +12,22 @@
   transition: all 0.7s;
 }
 
-.appear {
-  font-size: 1rem;
-  opacity: 0;
-  transform: scale(0.1);
-}
-.appearActive {
-  height: 100%;
-  opacity: 1;
-  transform: scale(1);
-
-  text-align: center;
-  font-size: 5rem;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.appearDone {
-  height: 100%;
-
-  text-align: center;
-  font-size: 5rem;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
+.appear,
 .enter {
   font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
 }
-.enterActive {
+.appearActive,
+.appearDone,
+.enterActive,
+.enterDone {
   height: 100%;
+  font-size: 4.8rem;
   opacity: 1;
   transform: scale(1);
 
   text-align: center;
-  font-size: 5rem;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.enterDone {
-  height: 100%;
-
-  text-align: center;
-  font-size: 5rem;
   margin: auto;
 
   display: flex;
@@ -134,9 +38,11 @@
 
 .exit {
   height: 100%;
+  font-size: 4.8rem;
+  opacity: 1;
+  transform: scale(1);
 
   text-align: center;
-  font-size: 5rem;
   margin: auto;
 
   display: flex;
@@ -148,4 +54,20 @@
   font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
+}
+
+/* ####################### */
+/* MEDIA QUERIES */
+/* ####################### */
+
+/* 690px */
+@media (max-width: 43.125em) {
+}
+
+/* 570px */
+@media (max-width: 35.625em) {
+}
+
+/* 510px */
+@media (max-width: 31.875em) {
 }

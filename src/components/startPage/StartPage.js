@@ -1,7 +1,7 @@
 import { CSSTransition } from "react-transition-group";
 
 import styles from "./StartPage.module.css";
-import StartEndButton from "./StartEndButton";
+import StartButton from "./StartButton";
 import { START_PAGE_TITLE, START_PAGE_P } from "../../UI/UITextConstants";
 
 export default function StartPage({ show, onExited, timeout }) {
@@ -18,7 +18,7 @@ export default function StartPage({ show, onExited, timeout }) {
       <div className={styles.startpage}>
         <h2>{START_PAGE_TITLE}</h2>
         <p>{START_PAGE_P}</p>
-        <StartEndButton />
+        <StartButton />
       </div>
     </CSSTransition>
   );

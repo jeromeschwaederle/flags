@@ -28,6 +28,10 @@
   justify-self: end;
 }
 
+.endBtn:hover {
+  background-color: rgb(220, 0, 0);
+}
+
 .gameStats {
   grid-column: 1 / -1;
   grid-row: 2;
@@ -43,30 +47,15 @@
 .exitActive {
   transition: all 0.7s;
 }
-
-.appear {
-  font-size: 1rem;
-  opacity: 0;
-  transform: scale(0.1);
-}
-.appearActive {
-  height: 100%;
-  opacity: 1;
-  transform: scale(1);
-}
-.appearDone {
-  height: 100%;
-}
+.appear,
 .enter {
   font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
 }
-.enterActive {
-  height: 100%;
-  opacity: 1;
-  transform: scale(1);
-}
+.appearActive,
+.appearDone,
+.enterActive,
 .enterDone {
   height: 100%;
   opacity: 1;
@@ -87,6 +76,7 @@
 /* MEDIA QUERIES */
 /* ####################### */
 
+/* ####################### */
 /* 690px */
 @media (max-width: 43.125em) {
   .game {
@@ -124,6 +114,7 @@
   }
 }
 
+/* ####################### */
 /* 570px */
 @media (max-width: 35.625em) {
   .game {
@@ -161,6 +152,7 @@
   }
 }
 
+/* ####################### */
 /* 510px */
 @media (max-width: 31.875em) {
   .game {
