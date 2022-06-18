@@ -130,6 +130,7 @@
     grid-column: 1/-1;
     grid-row: 3/4;
     text-align: center;
+    line-height: 1;
   }
   .img {
     max-width: 100%;

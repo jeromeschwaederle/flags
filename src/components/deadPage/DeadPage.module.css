@@ -3,6 +3,15 @@
   padding: 1.6rem;
 }
 
+.btn {
+  padding: 3.2rem 4.8rem;
+  font-size: 4.8rem;
+}
+
+.btn:hover span::after {
+  right: -1.8rem;
+}
+
 /* ####################### */
 /* TRANSITIONS */
 /* ####################### */
@@ -27,6 +36,8 @@
   height: 100%;
   opacity: 1;
   transform: scale(1);
+  font-size: 4.8rem;
+  font-weight: 600;
 
   text-align: center;
   margin: auto;
@@ -39,9 +50,10 @@
 
 .exit {
   height: 100%;
-
   opacity: 1;
   transform: scale(1);
+  font-size: 4.8rem;
+  font-weight: 600;
 
   text-align: center;
   margin: auto;

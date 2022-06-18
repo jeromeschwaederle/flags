@@ -24,7 +24,11 @@ export default function DeadPage({ show, onExited, timeout }) {
       <div>
         <SkullSvg />
         <p className={styles.message}>{DEAD_MESSAGE}</p>
-        <Button onClick={clickHandler} text={DEAD_BTN_TEXT} />
+        <Button
+          className={styles.btn}
+          onClick={clickHandler}
+          text={DEAD_BTN_TEXT}
+        />
       </div>
     </CSSTransition>
   );

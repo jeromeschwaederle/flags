@@ -1,5 +1,14 @@
-.congratulations {
-  width: 100%;
+/* .container {
+
+} */
+
+.btn {
+  padding: 3.2rem 4.8rem;
+  font-size: 4.8rem;
+}
+
+.btn:hover span::after {
+  right: -1.8rem;
 }
 
 /* ####################### */
@@ -24,6 +33,7 @@
 .enterDone {
   height: 100%;
   font-size: 4.8rem;
+  font-weight: 600;
   opacity: 1;
   transform: scale(1);
 
@@ -39,6 +49,7 @@
 .exit {
   height: 100%;
   font-size: 4.8rem;
+  font-weight: 600;
   opacity: 1;
   transform: scale(1);
 
@@ -54,20 +65,4 @@
   font-size: 1rem;
   opacity: 0;
   transform: scale(0.1);
-}
-
-/* ####################### */
-/* MEDIA QUERIES */
-/* ####################### */
-
-/* 690px */
-@media (max-width: 43.125em) {
-}
-
-/* 570px */
-@media (max-width: 35.625em) {
-}
-
-/* 510px */
-@media (max-width: 31.875em) {
 }

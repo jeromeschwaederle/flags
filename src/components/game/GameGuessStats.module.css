@@ -17,15 +17,31 @@
   animation: guessed 0.5s ease-out;
 }
 
+/* ####################### */
+/* ANIMATIONS */
+/* ####################### */
+
 @keyframes guessed {
   0% {
     transform: scale(1);
   }
   15% {
-    transform: scale(3);
+    transform: scale(3.2);
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes guessedRotate {
+  0% {
+    transform: scale(1) rotate(180deg);
+  }
+  15% {
+    transform: scale(3.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
   }
 }
 
@@ -54,4 +70,25 @@
     display: flex;
     flex-direction: column;
   }
+
+  .gessed .icon,
+  .leftToGuess .icon {
+    transform: rotate(180deg);
+  }
+
+  .iconGuessed:last-child {
+    animation: guessedRotate 0.5s ease-out;
+  }
 }
+
+/* 510px */
+/* @media (max-width: 31.875em) {
+  .gessed .icon,
+  .leftToGuess .icon {
+    transform: rotate(180deg);
+  }
+
+  .iconGuessed:last-child {
+    animation: gotate 0.5s ease-out;
+  }
+} */
